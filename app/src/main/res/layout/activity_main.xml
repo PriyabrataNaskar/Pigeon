@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/nested_horizontal__view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/toolbar_color"
+            android:theme="@style/Toolbar.Pigeon"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/brand_color" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Horizontally scrollable Chips!-->
+    <HorizontalScrollView
+        android:id="@+id/nested_horizontal__view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbar">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
+            android:layout_width="wrap_content"
+            app:singleSelection="true"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/suggested_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/suggested" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/business_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/business" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/technology_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/tech" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/general_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/general" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/entertainment_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/entertainment"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/health_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/health" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/science_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/science" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sports_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Chip.Pigeon"
+                android:text="@string/sports" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nested_horizontal__view"
+        tools:listitem="@layout/news_card_item" />
+</androidx.constraintlayout.widget.ConstraintLayout>
