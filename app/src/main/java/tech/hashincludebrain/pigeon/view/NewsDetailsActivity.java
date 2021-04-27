@@ -6,10 +6,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -76,38 +76,25 @@ public class NewsDetailsActivity extends AppCompatActivity {
         newsMetaDataTextView.setText("by " + newsAuthorName + " " + newsPublishTime);
         //newsArticleTextView.setText(content);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        backButton.setOnClickListener(v -> onBackPressed());
 
-        shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        shareButton.setOnClickListener(v -> {
+            Glide.with(getApplicationContext()).asBitmap().load(newsImageResource).into(new CustomTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
+                    //Get bitmap image
+                }
+                @Override
+                public void onLoadCleared(Drawable placeholder) {
+                }
+            });
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
 
-                /**
-                 * Get Bitmap Image
-                 */
-
-                Glide.with(getApplicationContext()).asBitmap().load(newsImageResource).into(new CustomTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
-
-                    }
-                    @Override
-                    public void onLoadCleared(Drawable placeholder) {
-                    }
-                });
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-
-                //Intent shareIntent = new Intent();
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, newsTitle);
-                //shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(shareIntent, "Share News With"));
-            }
+            //Intent shareIntent = new Intent();
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, newsTitle);
+            //shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(Intent.createChooser(shareIntent, "Share News With"));
         });
 
     }
@@ -127,6 +114,8 @@ public class NewsDetailsActivity extends AppCompatActivity {
             stream.close();
             uri = Uri.fromFile(file);
         } catch (IOException e) {
+            //Show error message
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
         return uri;
     }

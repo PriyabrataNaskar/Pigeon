@@ -4,7 +4,10 @@
     <string name="author_name">Author Name</string>
     <string name="post_time">2 hours ago</string>
     <string name="news_image">News Image</string>
-    <string name="suggested">#suggested</string>
+
+
+    <!-- Category Strings !-->
+    <string name="suggested">#Suggested</string>
     <string name="business">#Business</string>
     <string name="tech">#Tech</string>
     <string name="space">#Space</string>
@@ -12,8 +15,8 @@
     <string name="education">#Education</string>
     <string name="health">#Health</string>
     <string name="politics">#Politics</string>
-    <string name="general">General</string>
-    <string name="science">Science</string>
-    <string name="sports">Sports</string>
-    <string name="entertainment">Entertainment</string>
+    <string name="general">#General</string>
+    <string name="science">#Science</string>
+    <string name="sports">#Sports</string>
+    <string name="entertainment">#Entertainment</string>
 </resources>

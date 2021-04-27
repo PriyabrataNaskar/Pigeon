@@ -106,7 +106,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
                 view.getContext().startActivity(intent);
             }else if (view.getId() == R.id.share_button){
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
 
+                //Intent shareIntent = new Intent();
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, mNewsData.get(getAdapterPosition()).getNewsTitle());
+                //shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                view.getContext().startActivity(Intent.createChooser(shareIntent, "Share News With"));
             }
         }
 

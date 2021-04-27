@@ -68,35 +68,15 @@ public class MainActivity extends AppCompatActivity {
 
         final JSONPlaceHolderAPI jsonPlaceHolderAPI = APIClient.getRetrofit().create(JSONPlaceHolderAPI.class);
 
-//        Call<ResponseModel> call = jsonPlaceHolderAPI.getNews(Constants.countryIndia,Constants.newsCategory,Constants.APIKey);
-//
-//        call.enqueue(new Callback<ResponseModel>() {
-//            @Override
-//            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-//                assert response.body() != null;
-//                if (!response.body().getStatus().equals("ok")){
-//                    Toast.makeText(MainActivity.this,response.message(),Toast.LENGTH_LONG).show();
-//                }
-//                List<Article> articleList = response.body().getArticles();
-//                if (articleList.size()>0){
-//                    mNewsData = articleList;
-//                    mAdapter = new NewsAdapter(mNewsData,MainActivity.this);
-//                    mRecyclerView.setAdapter(mAdapter);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseModel> call, Throwable t) {
-//                Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
-//            }
-//        });
-//        
-        suggestedChip.setChecked(true);
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 String category ="general";
                 if (checkedId == R.id.suggested_chip){
+                    /**
+                     * TODO: Seeing user behaviour show the news
+                     * For Now just showing general news
+                     */
                     category = "general";
                 }else if (checkedId == R.id.business_chip){
                     category ="business";
@@ -137,5 +117,6 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+        suggestedChip.setChecked(true);
     }
 }
