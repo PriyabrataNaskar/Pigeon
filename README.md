@@ -21,7 +21,7 @@ Pigeon - a news app in android. This android application fetches news using retr
 
 ![News Page](https://github.com/PriyabrataNaskar/Pigeon/blob/master/screenshot/News%20Detail%20Page%20(Horizontal)%20(1).png)
 
-[Figma Prototype](https://www.figma.com/proto/s0UUXrsQc1PdUmgHdAdGTR/News-App?node-id=0%3A1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=84%3A7)
+### You can view the design in [Figma Prototype](https://www.figma.com/proto/s0UUXrsQc1PdUmgHdAdGTR/News-App?node-id=0%3A1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=84%3A7)
 
 All the news are fetched from the news api. If you're cloning this project in your own machine don't forget to modify the ```API KEY```. You will get a new API Key on the [NEWS API](https://newsapi.org) website
 
@@ -66,16 +66,19 @@ All the response you will get ion JSON format.
 ```
 
 ### I'm using 
-- [Retrofit](https://square.github.io/retrofit/) for network calls
+
+- [Retrofit](https://square.github.io/retrofit/) for network calls in background thread
 - [Glide](https://github.com/bumptech/glide) to load images over the internet.
+- [GSON Library](https://github.com/google/gson) to parse the JSON
 
 ## Acknowledgements
 
 Thanks to these projects and libraries:
 
-**Libraries**
+## **Libraries**
 
 - [Retrofit](https://square.github.io/retrofit/)
 - [Glide](https://github.com/bumptech/glide)
+- [GSON Library](https://github.com/google/gson)
 - [MDC](https://material.io/develop/android/docs/getting-started)
 - [Lottie](https://github.com/airbnb/lottie-android)
