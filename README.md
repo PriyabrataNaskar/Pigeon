@@ -64,12 +64,15 @@ All the response you will get ion JSON format.
 
 
 ```
+### Pigeon Demo Video:
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6792034941594169344?compact=1" height="284" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
 
 ### I'm using 
 
 - [Retrofit](https://square.github.io/retrofit/) for network calls in background thread
 - [Glide](https://github.com/bumptech/glide) to load images over the internet.
 - [GSON Library](https://github.com/google/gson) to parse the JSON
+- [Lottie](https://github.com/airbnb/lottie-android) to play the animation
 
 ## Acknowledgements
 
